@@ -1,0 +1,70 @@
+body {
+    background-color: #1b1f2a;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+::selection{
+    background: #5951ff;
+    color: aliceblue;
+}
+.container {
+  padding: 60px 20px;
+  max-width: 800px;
+}
+
+h1 {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.back-link {
+  color: #6643b5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #a088ff;
+  }
+
+.icon-box {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.material-icons {
+  font-size: 32px;
+  margin-right: 10px;
+  color: #6643b5;
+}
+.social-icons {
+        display: flex;
+        justify-content: center;
+    }
+.social-icons a {
+    text-decoration: none;
+    margin: 0px 15px;
+}
+.fa-brands.fa-linkedin.fa-2xl {
+    transition: 0.3s ease-in;
+    color: gray
+}
+.fa-brands.fa-linkedin.fa-2xl:hover {
+    color: rgb(98, 162, 250);
+    text-shadow: 0 0 20px rgba(98, 162, 250, 0.9);
+}
+.fa-brands.fa-github.fa-2xl {
+    color: gray;
+    transition: 0.3s ease-in;
+}
+.fa-brands.fa-github.fa-2xl:hover {
+    /* color: rgb(98, 162, 250); */
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 20px rgba(98, 162, 250, 0.9);
+}
