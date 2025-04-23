@@ -1,28 +1,23 @@
-let srNo = 1; // Serial number tracker
+let srNo = 1;
 
-// Update column header dynamically
 document.getElementById('experimentLabel').addEventListener('input', function () {
   document.getElementById('titleHeader').innerText = this.value || 'Title/Experiment';
 });
 
-// Toggle Remarks column
 document.getElementById('addRemarks').addEventListener('change', function () {
   toggleColumn('remarks-col', this.checked);
 });
 
-// Toggle Date column
 document.getElementById('addDate').addEventListener('change', function () {
   toggleColumn('date-col', this.checked);
 });
 
-// Show/hide specific column
 function toggleColumn(className, show) {
   document.querySelectorAll('.' + className).forEach(cell => {
     cell.style.display = show ? '' : 'none';
   });
 }
 
-// Add new table row
 function addRow() {
   const tbody = document.querySelector('#indexTable tbody');
   const tr = document.createElement('tr');
@@ -37,7 +32,6 @@ function addRow() {
   toggleColumn('date-col', document.getElementById('addDate').checked);
 }
 
-// Remove last row from table
 function removeLastRow() {
   const tbody = document.querySelector('#indexTable tbody');
   if (tbody.lastChild) {
@@ -46,7 +40,6 @@ function removeLastRow() {
   }
 }
 
-// Generate canvas image and enable download
 function generateImage() {
   const a4area = document.getElementById('a4-area');
   html2canvas(a4area).then(canvas => {
@@ -63,38 +56,40 @@ function generateImage() {
   });
 }
 
-//  dark mode and light mode switch
+document.getElementById('indexTable').addEventListener('click', function (e) {
+  const target = e.target;
+  if (target.tagName === 'TD' || target.tagName === 'TH') {
+    const selected = document.querySelector('input[name="alignment"]:checked');
+    if (selected) {
+      target.style.textAlign = selected.value;
+    }
+  }
+});
+
 let isDarkMode = true;
 
 function toggleTheme() {
-    isDarkMode = !isDarkMode;
-    const body = document.body;
-    const icon = document.getElementById('themeIcon');
+  const body = document.body;
+  const icon = document.getElementById('themeIcon');
+  isDarkMode = !isDarkMode;
 
-    if (isDarkMode) {
+  if (isDarkMode) {
     body.style.backgroundColor = '#1b1f2a';
     body.style.color = '#fff';
     icon.innerText = 'dark_mode';
     icon.style.color = 'white';
-
-    document.querySelectorAll('.form-label, .form-check-label').forEach(label => {
-        label.style.color = '#fff';
-    });
-
+    document.querySelectorAll('.form-label, .form-check-label').forEach(label => label.style.color = '#fff');
     document.querySelector('h2').style.color = '#fff';
     document.querySelector('.underline-slide').style.color = '#fff';
-
-    } else {
+    body.classList.remove('light-mode');
+  } else {
     body.style.backgroundColor = '#f9f9f9';
     body.style.color = '#1c1f29';
     icon.innerText = 'light_mode';
     icon.style.color = '#1c1f29';
-
-    document.querySelectorAll('.form-label, .form-check-label').forEach(label => {
-        label.style.color = '#1c1f29';
-    });
-
+    document.querySelectorAll('.form-label, .form-check-label').forEach(label => label.style.color = '#1c1f29');
     document.querySelector('h2').style.color = '#1c1f29';
     document.querySelector('.underline-slide').style.color = '#1c1f29';
-    }
+    body.classList.add('light-mode');
+  }
 }
