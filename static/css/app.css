@@ -5,14 +5,14 @@
     background: #5951ff;
     color: aliceblue;
 }
+
 body { background-color: #1b1f2a; color: #fff; }
 
-/* A4 size area with responsive height and width */
 .a4 {
   width: 100%;
-  max-width: 210mm; /* A4 width in mm */
+  max-width: 210mm;
   height: auto;
-  min-height: 297mm; /* A4 height in mm */
+  min-height: 297mm;
   padding: 15mm;
   border: 2px solid #000;
   background: white;
@@ -22,7 +22,6 @@ body { background-color: #1b1f2a; color: #fff; }
   box-sizing: border-box;
 }
 
-/* Editable title styling */
 .editable-title {
   text-align: center;
   font-size: 28px;
@@ -37,7 +36,6 @@ body { background-color: #1b1f2a; color: #fff; }
   padding: 5px 10px;
 }
 
-/* Table styles */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -55,17 +53,14 @@ th, td {
 
 th.remarks-col, td.remarks-col { width: 100px; }
 
-/* Form styling */
 #output { margin-top: 20px; text-align: center; }
 input, .form-check-label { color: #fff; }
 .form-control, .btn { border-radius: 10px; }
 .btn { margin-right: 10px; }
 .form-container { max-width: 600px; margin: 0 auto 30px; }
 
-/* Smooth scroll */
 .scroll-animation { scroll-behavior: smooth; }
 
-/* Canvas preview */
 #previewCanvas {
   display: block;
   margin: 0 auto;
@@ -75,60 +70,34 @@ input, .form-check-label { color: #fff; }
 
 #downloadBtn { display: block; margin: 20px auto 0; }
 
-/* Responsive tweaks for different screen sizes */
 @media (max-width: 992px) {
   .editable-title { font-size: 24px; }
   table, th, td { font-size: 12px; }
-  .a4 {
-    max-width: 100%;
-    height: auto;
-    min-height: 210mm; /* Reduce height slightly */
-  }
+  .a4 { max-width: 100%; height: auto; min-height: 210mm; }
 }
 
 @media (max-width: 768px) {
   .editable-title { font-size: 22px; }
   table, th, td { font-size: 11px; }
-  .a4 {
-    max-width: 100%;
-    height: auto;
-    min-height: 210mm;
-    padding: 8mm;
-  }
+  .a4 { max-width: 100%; height: auto; min-height: 210mm; padding: 8mm; }
 }
 
 @media (max-width: 576px) {
   .editable-title { font-size: 20px; }
   table, th, td { font-size: 10px; }
-  .a4 {
-    max-width: 100%;
-    height: auto;
-    min-height: 200mm; /* Slightly smaller for mobile */
-    padding: 6mm;
-  }
+  .a4 { max-width: 100%; height: auto; min-height: 200mm; padding: 6mm; }
 }
 
-/* Smallest devices (mobile phones) */
 @media (max-width: 375px) {
   .editable-title { font-size: 18px; }
   table, th, td { font-size: 9px; }
-  .a4 {
-    max-width: 100%;
-    height: auto;
-    min-height: 190mm; /* Further reduce for small mobile screens */
-    padding: 2mm;
-  }
+  .a4 { max-width: 100%; height: auto; min-height: 190mm; padding: 2mm; }
 }
 
-/* Tablets */
 @media (min-width: 600px) and (max-width: 768px) {
-  .a4 {
-    max-width: 90%;
-    height: auto;
-    min-height: 220mm; /* Larger for tablets */
-    padding: 8mm;
-  }
+  .a4 { max-width: 90%; height: auto; min-height: 220mm; padding: 8mm; }
 }
+
 .underline-slide {
   position: relative;
   text-decoration: none;
@@ -140,8 +109,8 @@ input, .form-check-label { color: #fff; }
   content: "";
   position: absolute;
   left: 0;
-  bottom: -4px; /* adds margin between text and underline */
-  height: 4px;  /* underline height */
+  bottom: -4px;
+  height: 4px;
   width: 0%;
   background-color: #6643b5;
   transition: width 0.3s ease;
@@ -153,4 +122,34 @@ input, .form-check-label { color: #fff; }
 
 .underline-slide:hover::after {
   width: 100%;
+}
+
+/* Hide radio buttons */
+input[type="radio"][name="alignment"] {
+  display: none;
+}
+
+/* Icon styles */
+label[for^="align"] {
+  cursor: pointer;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+/* input[type="radio"]:checked + label {
+  color: #6643b5;
+} */
+
+body.light-mode label[for^="align"] {
+  color: #1d1f28;
+}
+
+/* body.light-mode input[type="radio"]:checked + label {
+  color: #6643b5;
+} */
+
+#alignLeft:checked + label,
+#alignCenter:checked + label,
+#alignRight:checked + label {
+  color: #6643b5;
 }
